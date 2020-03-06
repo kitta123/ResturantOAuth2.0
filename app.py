@@ -1,10 +1,6 @@
 # Python standard libraries
 import json
 import os
-import random
-import sqlite3
-import string
-
 import dicttoxml
 
 # Third party libraries
@@ -23,7 +19,6 @@ from database_setup import Base, Restaurant, MenuItem
 #Connect to Database and create database session
 engine = create_engine('sqlite:///restaurantmenu.db')
 Base.metadata.bind = engine
-
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
@@ -57,13 +52,6 @@ login_manager.init_app(app)
 def unauthorized():
     return "You must be logged in to access this content.", 403
 
-
-# Naive database setup
-try:
-    init_db_command()
-except sqlite3.OperationalError:
-    # Assume it's already been created
-    pass
 
 # OAuth2 client setup
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
