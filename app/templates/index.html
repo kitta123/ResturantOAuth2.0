@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+    <div>
+        <div>
+        <p>Welcome to the reservation system</p>
+        </div>
+
+        <p>
+            <a href="{{ url_for('make_reservation') }}">Make a Reservation</a>
+        </p>
+    </div>
+{%  endblock %}
